@@ -22,28 +22,30 @@ View.prototype.exercise1 = function () {
   //Challenge: Give every square the class 'orange'
   //Result: Every square should turn orange (we already have a CSS rule)
 
-  //your code here!
+  $('.square').addClass("orange");
+
 };
 
 View.prototype.exercise2 = function () {
   //Challenge: Remove every square
   //Result: Every square vanishes
 
-  //your code here!
+  $('#easel li').remove();
 };
 
 View.prototype.exercise3 = function () {
   //Challenge: Add an <h1> with the text 'i love jquery' under the grid.
   //Result: An <h1> with the text 'i love jquery' appears under the grid.
-
-  //your code here!
+  const $h1 = $('h1');
+  $h1.text('i love jquery');
+  const $body = $('body');
+  $body.append($h1);
 };
 
 View.prototype.exercise4 = function () {
   //Challenge: Write your first name in every other square.
   //Result: Your name appears in every other square.
-
-  //your code here!
+  $('.square:nth-child(even)').text('joey');
 };
 
 View.prototype.exercise5 = function () {
