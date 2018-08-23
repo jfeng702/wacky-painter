@@ -45,7 +45,13 @@ View.prototype.exercise3 = function () {
 View.prototype.exercise4 = function () {
   //Challenge: Write your first name in every other square.
   //Result: Your name appears in every other square.
-  $('.square:nth-child(even)').text('joey');
+  // $('.square:nth-child(even)').text('joey');
+  $('.square').each ( (idx, el) => {
+    if (idx % 2 === 0) {
+      var $square = $(el);
+      $square.text('joey');
+    }
+  });
 };
 
 View.prototype.exercise5 = function () {
@@ -56,7 +62,12 @@ View.prototype.exercise5 = function () {
   //hint: checkout the addRow function at the bottom of the file: we set the
   //  'data-pos' of every square
 
-  //your code here!
+  $('ul.row').on('click', event => {
+    const $ul = $(event.currentTarget);
+    if ($ul.find('li').is(event.target)) {
+      alert($(event.target).attr('data-pos'));
+    }
+  });
 };
 
 View.prototype.exercise6 = function () {
@@ -66,7 +77,11 @@ View.prototype.exercise6 = function () {
 
   //hint: use window._randomColorString() (defined at top) to get a random color!
 
-  //your code here!
+  $('.square').each( (idx, el) => {
+    var $sq = $(el);
+    $sq.attr('style', `background-color: ${window._randomColorString()}`);
+  });
+
 };
 
 View.prototype.exercise7 = function(){
@@ -76,7 +91,13 @@ View.prototype.exercise7 = function(){
   //You should push the button for exercise 6 first to try it on the
   //rainbow.
 
-  //your code here!
+  $('ul.row').on('mouseenter', event => {
+    var $ul = $(event.currentTarget);
+    if ($ul.find('li').is(event.target)) {
+      var $li = $(event.target);
+      console.log($li.css("background-color"));
+    }
+  });
 };
 
 
